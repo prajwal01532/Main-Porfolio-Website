@@ -104,22 +104,22 @@
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span> <script>
-    var dob = new Date("06/24/2003");
-    //calculate month difference from current date in time
-    var month_diff = Date.now() - dob.getTime();
-    
-    //convert the calculated difference in date format
-    var age_dt = new Date(month_diff); 
-    
-    //extract year from date    
-    var year = age_dt.getUTCFullYear();
-    
-    //now calculate the age of the user
-    var age = Math.abs(year - 1970);
-    
-    //display the calculated age
-    document.write(age + "  years");
+                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span> 
+			  <script>
+     function calculateAge() {
+            // Get the date of birth from the input field
+            var dobInput = document.getElementById("dob").value;
+
+            // Create a new Date object from the input value
+            var dobDate = new Date(dobInput);
+
+            // Calculate the age
+            var currentDate = new Date();
+            var age = currentDate.getFullYear() - dobDate.getFullYear() - (currentDate.getMonth() < dobDate.getMonth() || (currentDate.getMonth() === dobDate.getMonth() && currentDate.getDate() < dobDate.getDate()));
+
+            // Display the result
+            document.getElementById("result").innerHTML = "You are " + age + " years old.";
+        }
 </script>
 </span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor</span></li>
